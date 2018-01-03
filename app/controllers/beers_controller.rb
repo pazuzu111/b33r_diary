@@ -31,10 +31,12 @@ class BeersController < ApplicationController
         render :json {@beer}
     end
 
-    # def update
-    #     @beer = Beer.update(beer_params)
-    #     render :json {message: "updated!!!", beer: @beer}
-    # end
+    def update
+
+        #update beer & render in JSON message
+        @beer = Beer.update(beer_params)
+        render :json {message: "updated!!!", beer: @beer}
+    end
 
     # def destroy
     #     Beer.destroy(params[:id])
