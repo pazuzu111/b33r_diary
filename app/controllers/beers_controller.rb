@@ -11,16 +11,16 @@ class BeersController < ApplicationController
     end
 
 
-    # def create
+    def create
 
-    #     @beer = Beer.new(beer_params)
+        @beer = Beer.new(beer_params)
 
-    #     if @beer.save?
-    #         render :json {message: "scccesfully created" beer: @beer}
-    #     else
-    #         render :json {message:"did not create beer"}
-    #     end
-    # end
+        if @beer.save?
+            render :json {message: "scccesfully created" beer: @beer}
+        else
+            render :json {message:"did not create beer"}
+        end
+    end
 
     # def show
     #     @beer = Beer.find(params[:id])
@@ -44,7 +44,7 @@ class BeersController < ApplicationController
     private
 
     def beer_params
-        parmas.require(:beer).permit(:name, :brewery, :style, :image_url, :abv)
+        params.require(:beer).permit(:name, :brewery, :style, :image_url, :abv)
     end
 
 end
