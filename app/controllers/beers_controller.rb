@@ -40,7 +40,7 @@ class BeersController < ApplicationController
 
 
 
-#****************************************************helpers
+#**************** helper methods ****************
     private
 
     def beer_params
