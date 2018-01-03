@@ -3,5 +3,4 @@ Rails.application.routes.draw do
 
     #path for all endpoints
     resources :beers
-
 end

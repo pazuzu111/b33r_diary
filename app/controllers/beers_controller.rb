@@ -7,9 +7,8 @@ class BeersController < ApplicationController
         @beers = Beer.all
 
         #once query executed, grab response and render it in JSON
-        render :json {@beers}
+        render json: {beers: @beers}
     end
-
 
     def create
 
@@ -18,9 +17,9 @@ class BeersController < ApplicationController
 
         #if the beer is saved render JSON notification
         if @beer.save?
-            render :json {message: "scccesfully created" beer: @beer}
+            render json: {message: "scccesfully created", beer: @beer}
         else
-            render :json {message:"did not create beer"}
+            render json: {message:"did not create beer"}
         end
     end
 
@@ -28,23 +27,22 @@ class BeersController < ApplicationController
 
         #find user with id specidfied in url parameter and render it in JSON
         @beer = Beer.find(params[:id])
-        render :json {@beer}
+        render json: {beer: @beer}
     end
 
     def update
 
         #update beer & render in JSON notification
         @beer = Beer.update(beer_params)
-        render :json {message: "updated!!!", beer: @beer}
+        render json: {message: "updated!!!", beer: @beer}
     end
 
     def destroy
 
         #destroy beer and render jSON notification
         Beer.destroy(params[:id])
-        render :json {message: "deleted!!!"}
+        render json: {message: "deleted!!!"}
     end
-
 
 
 #**************** helper methods ****************
