@@ -13,8 +13,10 @@ class BeersController < ApplicationController
 
     def create
 
+        # create new instance of beer in order to check for a save to db
         @beer = Beer.new(beer_params)
 
+        #if the beer is saved render JSON message
         if @beer.save?
             render :json {message: "scccesfully created" beer: @beer}
         else
@@ -22,11 +24,12 @@ class BeersController < ApplicationController
         end
     end
 
-    # def show
-    #     @beer = Beer.find(params[:id])
-    #     render :json {@beer}
+    def show
 
-    # end
+        #find user with id specidfied in url parameter and render it in JSON
+        @beer = Beer.find(params[:id])
+        render :json {@beer}
+    end
 
     # def update
     #     @beer = Beer.update(beer_params)
