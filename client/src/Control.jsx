@@ -1,12 +1,18 @@
 import React from 'react'
-import { Router, Route, Switch } from 'react-router'
+import { BrowserRouter as Router, Link } from 'react-router-dom'
 
 
-const Controls = () => {
+const Control = (props) => {
     return (
-        <div>
-            <h2>BEERS!</h2>
-        </div>
+        <Router>
+            <div className="App">
+                  <ul>
+                    <li><Link to="/beers">Beers!</Link></li>
+                    <li><Link to="/new">add beer</Link></li>
+                  </ul>
+            </div>
+        </Router>
     )
-
 }
+
+export default Control
