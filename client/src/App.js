@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Control from './Control';
 import Beers from './Beers';
+import Form from './Form';
 
 
 //assets
@@ -21,7 +22,7 @@ export default class App extends Component {
         this.getbeers()
     }
 
-    getbeers() {
+    getbeers = () => {
         fetch("/beers")
         .then(res => res.json())
         .then(res => {
@@ -36,14 +37,12 @@ export default class App extends Component {
     return (
         <Router>
             <div className="App">
+                <Control />
                 <Switch>
-                    <Route exact path='/' component={Control} />
-                    <Route path='/beers' render={props => <Beers beers={this.state.beers} dataLoaded={this.state.dataLoaded} />} />
-                    <Route exact path='/add' component={Form} />
-
+                    <Route path='/beers' render={props => <Beers beers={this.state.beers} dataLoaded={this.state.dataLoaded} getBeers={this.getbeers} />} />
+                    <Route path='/add' render={props => <Form getbeers={this.getbeers} />} />
                 </Switch>
             </div>
-
         </Router>
 
     );

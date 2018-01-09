@@ -2,6 +2,15 @@ import React from 'react'
 
 
 const Beers = (props) => {
+
+    // const deleteBeer = (id) => {
+    //     fetch(`/beers/${id}`, {
+    //         method: 'DELETE',
+    //     })
+    //     .then(res => res.json())
+    //     .then(res => {props.getBeers()})
+    // }
+
     return (
         <div className="App">
         {props.dataLoaded ?
