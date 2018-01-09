@@ -16,7 +16,8 @@ class BeersController < ApplicationController
         @beer = Beer.new(beer_params)
 
         #if the beer is saved render JSON notification
-        if @beer.save?
+        if @beer.valid?
+            @beer.save
             render json: {message: "scccesfully created", beer: @beer}
         else
             render json: {message:"did not create beer"}
