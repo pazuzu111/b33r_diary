@@ -19,7 +19,7 @@ const Beers = (props) => {
 
 
     const beer = () => {
-        return  props.beers.map(x => {
+        return  props.beers.reverse().map(x => {
             return (
                 <div key={x.id}>
                     <h1>{x.name}</h1>
