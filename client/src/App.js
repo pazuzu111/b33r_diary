@@ -39,8 +39,8 @@ export default class App extends Component {
             <div className="App">
                 <Control />
                 <Switch>
-                    <Route path='/beers' render={props => <Beers beers={this.state.beers} dataLoaded={this.state.dataLoaded} getBeers={this.getbeers} />} />
-                    <Route path='/add' render={props => <Form getbeers={this.getbeers} />} />
+                    <Route path='/beers' render={() => <Beers beers={this.state.beers} dataLoaded={this.state.dataLoaded} getBeers={this.getbeers} />} />
+                    <Route path='/add' render={() => <Form getbeers={this.getbeers} />} />
                 </Switch>
             </div>
         </Router>
