@@ -3,13 +3,13 @@ import React from 'react'
 
 const Beers = (props) => {
 
-    // const deleteBeer = (id) => {
-    //     fetch(`/beers/${id}`, {
-    //         method: 'DELETE',
-    //     })
-    //     .then(res => res.json())
-    //     .then(res => {props.getBeers()})
-    // }
+    const deleteBeer = (id) => {
+        fetch(`/beers/${id}`, {
+            method: 'DELETE',
+        })
+        .then(res => res.json())
+        .then(res => {props.getBeers()})
+    }
 
     return (
         <div className="App">
@@ -22,6 +22,7 @@ const Beers = (props) => {
                         <h4>{x.style}</h4>
                         <img src={x.image_url} alt={x.name}/>
                         <h4>ABV: {x.abv}%</h4>
+                        <button onClick={() => deleteBeer(x.id)}> DELETE </button>
                         <hr/>
                     </div>
                 )
