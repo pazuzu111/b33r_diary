@@ -1,24 +1,28 @@
-# README
+# b33r diary
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+beer diary where users can keep trakc of the beers they've
+tried and add comments about it
 
-Things you may want to cover:
 
-* Ruby version
+# stages
 
-* System dependencies
+- API   :done
+- react :in progress
+- css   :not touched feel free to touch
 
-* Configuration
 
-* Database creation
+# OPEN SOURE!!!
 
-* Database initialization
+feel free to conribute, its still in porgress
 
-* How to run the test suite
+# setup
 
-* Services (job queues, cache servers, search engines, etc.)
+clone
 
-* Deployment instructions
+```sh
+yarn install
 
-* ...
+yarn start
+
+rails s -p 3001
+```
