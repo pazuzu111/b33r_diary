@@ -11,15 +11,21 @@ const Beers = (props) => {
         .then(res => {props.getBeers()})
     }
 
-    // const updateBeer = (id) => {
-    //     fetch(`/beers/${id}`, {
-    //         method: 'PUT',
-    //     })
-    // }
+    const updateBeer = (id) => {
+        fetch(`/beers/${id}`, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(this.state)
+        })
+        .then(res => {return res})
+        .then(res => {props.getBeers()})
+    }
 
 
     const beer = () => {
-        return  props.beers.reverse().map(x => {
+        return  props.beers.map(x => {
             return (
                 <div key={x.id}>
                     <h1>{x.name}</h1>

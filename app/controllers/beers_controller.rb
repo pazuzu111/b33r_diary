@@ -15,9 +15,13 @@ class BeersController < ApplicationController
         # create new instance of beer in order to check for a save to db
         @beer = Beer.new(beer_params)
 
-        #if the beer is saved render JSON notification
+        #if the beer is valid
         if @beer.valid?
+
+            #save beer
             @beer.save
+
+            #render JSON notification & show target beer
             render json: {message: "scccesfully created", beer: @beer}
         else
             render json: {message:"did not create beer"}
@@ -28,6 +32,8 @@ class BeersController < ApplicationController
 
         #find user with id specidfied in url parameter and render it in JSON
         @beer = Beer.find(params[:id])
+
+        #render target beer in JSON
         render json: {beer: @beer}
     end
 
@@ -35,6 +41,8 @@ class BeersController < ApplicationController
 
         #update beer & render in JSON notification
         @beer = Beer.update(beer_params)
+
+        #render JSON notification with target beer
         render json: {message: "updated!!!", beer: @beer}
     end
 
@@ -42,9 +50,10 @@ class BeersController < ApplicationController
 
         #destroy beer and render jSON notification
         Beer.destroy(params[:id])
+
+        #render JSON notification
         render json: {message: "deleted!!!"}
     end
-
 
 #**************** helper methods ****************
     private

@@ -37,9 +37,10 @@ export default class Form extends Component {
         })
         .then(res => {return res})
         .then(res => {this.props.getbeers()})
+
         setTimeout(() => {
             this.setState({ redirect: true })
-        },500)
+        }, 500)
     }
 
     render() {
@@ -54,9 +55,7 @@ export default class Form extends Component {
                     <input type="text" name="abv" value={this.state.abv} onChange={this.handleChange} placeholder="abv"/>
                     <button type="submit">SUBMIT</button>
                 </form>
-                 {this.state.redirect && (
-                    <Redirect to={'/beers'}/>
-                    )}
+                 {this.state.redirect && ( <Redirect to={'/beers'}/> )}
             </div>
         )
     }
